@@ -22,16 +22,16 @@ public class PlayerButton : MonoBehaviour
 
     public void PlayPause()
     {
-        if (album.audioSource.isPlaying)
-        {
-            actualSprite = pauseSprite;
-            GetComponent<Image>().sprite = actualSprite;
-        }
-        else
-        {
-            actualSprite = playSprite;
-            GetComponent<Image>().sprite = actualSprite;
-        }
+        //if (album.audioSource.isPlaying)
+        //{
+        //    actualSprite = pauseSprite;
+        //    GetComponent<Image>().sprite = actualSprite;
+        //}
+        //else
+        //{
+        //    actualSprite = playSprite;
+        //    GetComponent<Image>().sprite = actualSprite;
+        //}
 
         album.PlayPause();
     }

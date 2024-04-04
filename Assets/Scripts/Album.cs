@@ -5,7 +5,7 @@ using UnityEngine;
 public class Album : MonoBehaviour
 {
     [SerializeField] List<AudioClip> audioSources;
-    int currentSongIndex;
+    int currentSongIndex = 0;
     public AudioSource audioSource;
     
     AudioClip currentSong;
@@ -21,7 +21,7 @@ public class Album : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentSong = audioSources[currentSongIndex];
+        
     }
 
     public void PlayPause()
@@ -36,7 +36,7 @@ public class Album : MonoBehaviour
 
     public void NextSong()
     {
-        if(currentSongIndex < audioSources.Count)
+        if(currentSongIndex < audioSources.Count - 1)
         {
             currentSongIndex++;
         }
@@ -45,13 +45,13 @@ public class Album : MonoBehaviour
             currentSongIndex = 0;
         }
 
-        audioSource.clip = currentSong;
+        audioSource.clip = audioSources[currentSongIndex]; ;
         audioSource.Play();
     }
 
     public void PreviousSong()
     {
-        if (currentSongIndex != 0)
+        if (currentSongIndex > 0)
         {
             currentSongIndex--;
         }
@@ -60,7 +60,12 @@ public class Album : MonoBehaviour
             currentSongIndex = audioSources.Count;
         }
 
-        audioSource.clip = currentSong;
+        audioSource.clip = audioSources[currentSongIndex];
         audioSource.Play();
+    }
+
+    public void Stop()
+    {
+        audioSource.Stop();
     }
 }
