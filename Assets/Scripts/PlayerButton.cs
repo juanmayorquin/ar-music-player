@@ -7,6 +7,7 @@ public class PlayerButton : MonoBehaviour
 {
     [SerializeField] Sprite playSprite, pauseSprite;
     [SerializeField] Album album;
+    bool isPlayButton;
     Sprite actualSprite;
 
     private void Start()
@@ -15,6 +16,11 @@ public class PlayerButton : MonoBehaviour
     }
 
     private void Update()
+    {
+        
+    }
+
+    public void PlayPause()
     {
         if (album.audioSource.isPlaying)
         {
@@ -26,10 +32,7 @@ public class PlayerButton : MonoBehaviour
             actualSprite = playSprite;
             GetComponent<Image>().sprite = actualSprite;
         }
-    }
 
-    public void PlayPause()
-    {
         album.PlayPause();
     }
 
